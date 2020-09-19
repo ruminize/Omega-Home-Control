@@ -2,7 +2,8 @@ from OmegaExpansion import relayExp
 
 class Relays:
 
-  def __init__(self, address):
+  def __init__(self, address=None):
+
     if address is None:
       raise ValueError("An Address must be passed into the constructor.");
 
@@ -21,3 +22,6 @@ class Relays:
 
   def channel(self):
     return self.defaultAddress;
+
+  def read(self, channel):
+    return relayExp.readChannel(self.defaultAddress, channel);
